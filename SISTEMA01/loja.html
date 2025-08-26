@@ -119,8 +119,6 @@
             <button class="botao-carrinho">Adicionar ao Carrinho</button>
         </div>
     </div>
-</body>
-</html>
 
 <style>
     body {
@@ -410,3 +408,174 @@
         background-color: #357abd;
     }
 </style>
+
+<script>
+// Objeto que armazenará os produtos adicionados ao carrinho
+let carrinhoProdutos = [];
+
+// Função que conta a quantidade total de itens no carrinho
+function contarQuantidadeCarrinho() {
+    return carrinhoProdutos.reduce((total, item) => total + item.quantidade, 0);
+}
+
+// Função que calcula o valor total do carrinho
+function calcularTotalCarrinho() {
+    return carrinhoProdutos.reduce((total, item) => total + (item.preco * item.quantidade), 0);
+}
+
+// Função para atualizar a exibição do contador de quantidade no botão do carrinho
+function atualizarContadorQuantidade() {
+    const contador = document.getElementById('contador-quantidade');
+    const totalQuantidade = contarQuantidadeCarrinho();
+    
+    contador.textContent = totalQuantidade;
+    contador.style.display = totalQuantidade > 0 ? 'block' : 'none';
+}
+
+// Função para atualizar o total exibido no carrinho
+function atualizarTotalCarrinho() {
+    const totalElement = document.getElementById('total-carrinho');
+    const total = calcularTotalCarrinho();
+    totalElement.textContent = `Total: R$ ${total.toFixed(2).replace('.', ',')}`;
+}
+
+// Função para renderizar os itens do carrinho na aba lateral
+function renderizarItensCarrinho() {
+    const itensContainer = document.getElementById('itens-carrinho');
+    
+    if (carrinhoProdutos.length === 0) {
+        itensContainer.innerHTML = '<p style="text-align: center; color: #999;">Seu carrinho está vazio</p>';
+        return;
+    }
+    
+    itensContainer.innerHTML = '';
+    
+    carrinhoProdutos.forEach((produto, index) => {
+        const itemDiv = document.createElement('div');
+        itemDiv.className = 'item-carrinho';
+        
+        itemDiv.innerHTML = `
+            <img src="${produto.imagem}" alt="${produto.nome}">
+            <div class="item-carrinho-info">
+                <div class="descricao">${produto.nome}</div>
+                <div class="preco">R$ ${produto.preco.toFixed(2).replace('.', ',')}</div>
+                <div class="quantidade-container">
+                    <button class="btn-quantidade" onclick="diminuirQuantidade(${index})">-</button>
+                    <span>${produto.quantidade}</span>
+                    <button class="btn-quantidade" onclick="aumentarQuantidade(${index})">+</button>
+                    <button class="btn-quantidade" onclick="removerItem(${index})" style="background-color: #ff5252; margin-left: 10px;">🗑️</button>
+                </div>
+            </div>
+        `;
+        
+        itensContainer.appendChild(itemDiv);
+    });
+}
+
+// Função para adicionar produto ao carrinho
+function adicionarAoCarrinho(nome, preco, imagem) {
+    // Verificar se o produto já existe no carrinho
+    const produtoExistente = carrinhoProdutos.find(item => item.nome === nome);
+    
+    if (produtoExistente) {
+        produtoExistente.quantidade += 1;
+    } else {
+        carrinhoProdutos.push({
+            nome: nome,
+            preco: preco,
+            imagem: imagem,
+            quantidade: 1
+        });
+    }
+    
+    // Atualizar a interface
+    atualizarContadorQuantidade();
+    atualizarTotalCarrinho();
+    renderizarItensCarrinho();
+}
+
+// Função para aumentar quantidade de um item
+function aumentarQuantidade(index) {
+    carrinhoProdutos[index].quantidade += 1;
+    atualizarContadorQuantidade();
+    atualizarTotalCarrinho();
+    renderizarItensCarrinho();
+}
+
+// Função para diminuir quantidade de um item
+function diminuirQuantidade(index) {
+    if (carrinhoProdutos[index].quantidade > 1) {
+        carrinhoProdutos[index].quantidade -= 1;
+    } else {
+        carrinhoProdutos.splice(index, 1);
+    }
+    atualizarContadorQuantidade();
+    atualizarTotalCarrinho();
+    renderizarItensCarrinho();
+}
+
+// Função para remover item completamente
+function removerItem(index) {
+    carrinhoProdutos.splice(index, 1);
+    atualizarContadorQuantidade();
+    atualizarTotalCarrinho();
+    renderizarItensCarrinho();
+}
+
+// Função para abrir/fechar o carrinho lateral
+function toggleCarrinho() {
+    const carrinhoLateral = document.getElementById('carrinho-lateral');
+    carrinhoLateral.classList.toggle('aberto');
+}
+
+// Configurar os eventos quando a página carregar
+document.addEventListener('DOMContentLoaded', function() {
+    // Event listener para o botão do carrinho
+    document.getElementById('btn-carrinho').addEventListener('click', toggleCarrinho);
+    
+    // Event listeners para os botões "Adicionar ao Carrinho"
+    const botoes = document.querySelectorAll('.botao-carrinho');
+    botoes.forEach((botao, index) => {
+        botao.addEventListener('click', function(e) {
+            const produto = e.target.closest('.produto');
+            const nome = produto.querySelector('.descricao').textContent;
+            const precoTexto = produto.querySelector('.preco').textContent;
+            const preco = parseFloat(precoTexto.replace('R$ ', '').replace(',', '.'));
+            const imagem = produto.querySelector('img').src;
+            
+            adicionarAoCarrinho(nome, preco, imagem);
+        });
+    });
+    
+    // Event listener para finalizar compra
+    document.getElementById('btn-finalizar').addEventListener('click', function() {
+        if (carrinhoProdutos.length === 0) {
+            alert('Seu carrinho está vazio!');
+            return;
+        }
+        
+        const total = calcularTotalCarrinho();
+        alert(`Compra finalizada! Total: R$ ${total.toFixed(2).replace('.', ',')}`);
+        
+        // Limpar carrinho
+        carrinhoProdutos = [];
+        atualizarContadorQuantidade();
+        atualizarTotalCarrinho();
+        renderizarItensCarrinho();
+        toggleCarrinho();
+    });
+    
+    // Fechar carrinho ao clicar fora dele
+    document.addEventListener('click', function(e) {
+        const carrinho = document.getElementById('carrinho-lateral');
+        const btnCarrinho = document.getElementById('btn-carrinho');
+        
+        if (!carrinho.contains(e.target) && !btnCarrinho.contains(e.target)) {
+            carrinho.classList.remove('aberto');
+        }
+    });
+});
+</script>
+
+</body>
+</html>
