@@ -8,6 +8,18 @@
 <body>
     <h1>RAMOZ</h1>
 
+    <!-- Carrossel -->
+    <div class="carrossel-container">
+        <div class="carrossel">
+            <img src="img/banner1.jpg" alt="1">
+            <img src="img/banner2.jpg" alt="2">
+            <img src="img/banner3.jpg" alt="3">
+            <img src="img/banner4.jpg" alt="4">
+        </div>
+        <button class="seta seta-anterior">&#10094;</button>
+        <button class="seta seta-proximo">&#10095;</button>
+    </div>
+
     <!-- Botão carrinho -->
     <button id="btn-carrinho" aria-label="Abrir carrinho">
         🛒
@@ -24,102 +36,185 @@
 
     <div class="produtos-container">
         <!-- Produto 1 -->
-        <div class="produto">
-            <div class="imagem-produto"><img src="img/Nike Air Max 90.jpg"></div>
-            <div class="descricao">Nike Air Max 90 - Tênis esportivo clássico.</div>
+        <div class="produto" data-produto-id="1">
+            <div class="imagem-produto">
+                <img src="img/Nike Air Max 90.jpg" onclick="irParaProduto('produto1.html')">
+            </div>
+            <div class="descricao" onclick="irParaProduto('produto1.html')">
+                Nike Air Max 90 - Tênis esportivo clássico.
+            </div>
             <div class="preco">R$ 299,90</div>
-            <button class="botao-carrinho">Adicionar ao Carrinho</button>
+            <div class="produto-acoes">
+                <button class="botao-ver-mais" onclick="irParaProduto('produto1.html')">Ver Detalhes</button>
+                <button class="botao-carrinho">Adicionar ao Carrinho</button>
+            </div>
         </div>
-
+    
         <!-- Produto 2 -->
-        <div class="produto">
-            <div class="imagem-produto"><img src="img/Adidas Ultraboost 22.jpg"></div>
-            <div class="descricao">Adidas Ultraboost 22 - Máximo conforto para corrida.</div>
+        <div class="produto" data-produto-id="2">
+            <div class="imagem-produto">
+                <img src="img/Adidas Ultraboost 22.jpg" onclick="irParaProduto('produto2.html')">
+            </div>
+            <div class="descricao" onclick="irParaProduto('produto2.html')">
+                Adidas Ultraboost 22 - Máximo conforto para corrida.
+            </div>
             <div class="preco">R$ 399,90</div>
-            <button class="botao-carrinho">Adicionar ao Carrinho</button>
+            <div class="produto-acoes">
+                <button class="botao-ver-mais" onclick="irParaProduto('produto2.html')">Ver Detalhes</button>
+                <button class="botao-carrinho">Adicionar ao Carrinho</button>
+            </div>
         </div>
-
+    
         <!-- Produto 3 -->
-        <div class="produto">
-            <div class="imagem-produto"><img src="img/Vans Old Skool.jpg"></div>
-            <div class="descricao">Vans Old Skool - Estilo skate tradicional.</div>
+        <div class="produto" data-produto-id="3">
+            <div class="imagem-produto">
+                <img src="img/Vans Old Skool.jpg" onclick="irParaProduto('produto3.html')">
+            </div>
+            <div class="descricao" onclick="irParaProduto('produto3.html')">
+                Vans Old Skool - Estilo skate tradicional.
+            </div>
             <div class="preco">R$ 249,90</div>
-            <button class="botao-carrinho">Adicionar ao Carrinho</button>
+            <div class="produto-acoes">
+                <button class="botao-ver-mais" onclick="irParaProduto('produto3.html')">Ver Detalhes</button>
+                <button class="botao-carrinho">Adicionar ao Carrinho</button>
+            </div>
         </div>
-
+    
         <!-- Produto 4 -->
-        <div class="produto">
-            <div class="imagem-produto"><img src="img/Converse All Star.jpg"></div>
-            <div class="descricao">Converse All Star - Clássico atemporal.</div>
+        <div class="produto" data-produto-id="4">
+            <div class="imagem-produto">
+                <img src="img/Converse All Star.jpg" onclick="irParaProduto('produto4.html')">
+            </div>
+            <div class="descricao" onclick="irParaProduto('produto4.html')">
+                Converse All Star - Clássico atemporal.
+            </div>
             <div class="preco">R$ 189,90</div>
-            <button class="botao-carrinho">Adicionar ao Carrinho</button>
+            <div class="produto-acoes">
+                <button class="botao-ver-mais" onclick="irParaProduto('produto4.html')">Ver Detalhes</button>
+                <button class="botao-carrinho">Adicionar ao Carrinho</button>
+            </div>
         </div>
-
+    
         <!-- Produto 5 -->
-        <div class="produto">
-            <div class="imagem-produto"><img src="img/Puma RS-X.jpg"></div>
-            <div class="descricao">Puma RS-X - Design futurista e confortável.</div>
+        <div class="produto" data-produto-id="5">
+            <div class="imagem-produto">
+                <img src="img/Puma RS-X.jpg" onclick="irParaProduto('produto5.html')">
+            </div>
+            <div class="descricao" onclick="irParaProduto('produto5.html')">
+                Puma RS-X - Design futurista e confortável.
+            </div>
             <div class="preco">R$ 359,90</div>
-            <button class="botao-carrinho">Adicionar ao Carrinho</button>
+            <div class="produto-acoes">
+                <button class="botao-ver-mais" onclick="irParaProduto('produto5.html')">Ver Detalhes</button>
+                <button class="botao-carrinho">Adicionar ao Carrinho</button>
+            </div>
         </div>
-
+    
         <!-- Produto 6 -->
-        <div class="produto">
-            <div class="imagem-produto"><img src="img/Mizuno Wave Prophecy.jpg"></div>
-            <div class="descricao">Mizuno Wave Prophecy - Tecnologia em amortecimento.</div>
+        <div class="produto" data-produto-id="6">
+            <div class="imagem-produto">
+                <img src="img/Mizuno Wave Prophecy.jpg" onclick="irParaProduto('produto6.html')">
+            </div>
+            <div class="descricao" onclick="irParaProduto('produto6.html')">
+                Mizuno Wave Prophecy - Tecnologia em amortecimento.
+            </div>
             <div class="preco">R$ 699,90</div>
-            <button class="botao-carrinho">Adicionar ao Carrinho</button>
+            <div class="produto-acoes">
+                <button class="botao-ver-mais" onclick="irParaProduto('produto6.html')">Ver Detalhes</button>
+                <button class="botao-carrinho">Adicionar ao Carrinho</button>
+            </div>
         </div>
-
+    
         <!-- Produto 7 -->
-        <div class="produto">
-            <div class="imagem-produto"><img src="img/New Balance 574.jpg"></div>
-            <div class="descricao">New Balance 574 - Estilo retrô moderno.</div>
+        <div class="produto" data-produto-id="7">
+            <div class="imagem-produto">
+                <img src="img/New Balance 574.jpg" onclick="irParaProduto('produto7.html')">
+            </div>
+            <div class="descricao" onclick="irParaProduto('produto7.html')">
+                New Balance 574 - Estilo retrô moderno.
+            </div>
             <div class="preco">R$ 329,90</div>
-            <button class="botao-carrinho">Adicionar ao Carrinho</button>
+            <div class="produto-acoes">
+                <button class="botao-ver-mais" onclick="irParaProduto('produto7.html')">Ver Detalhes</button>
+                <button class="botao-carrinho">Adicionar ao Carrinho</button>
+            </div>
         </div>
-
+    
         <!-- Produto 8 -->
-        <div class="produto">
-            <div class="imagem-produto"><img src="img/Jordan Air 1.jpg"></div>
-            <div class="descricao">Jordan Air 1 - Ícone do basquete mundial.</div>
+        <div class="produto" data-produto-id="8">
+            <div class="imagem-produto">
+                <img src="img/Jordan Air 1.jpg" onclick="irParaProduto('produto8.html')">
+            </div>
+            <div class="descricao" onclick="irParaProduto('produto8.html')">
+                Jordan Air 1 - Ícone do basquete mundial.
+            </div>
             <div class="preco">R$ 899,90</div>
-            <button class="botao-carrinho">Adicionar ao Carrinho</button>
+            <div class="produto-acoes">
+                <button class="botao-ver-mais" onclick="irParaProduto('produto8.html')">Ver Detalhes</button>
+                <button class="botao-carrinho">Adicionar ao Carrinho</button>
+            </div>
         </div>
-
+    
         <!-- Produto 9 -->
-        <div class="produto">
-            <div class="imagem-produto"><img src="img/Reebok Club C 85.jpg"></div>
-            <div class="descricao">Reebok Club C 85 - Minimalista e elegante.</div>
+        <div class="produto" data-produto-id="9">
+            <div class="imagem-produto">
+                <img src="img/Reebok Club C 85.jpg" onclick="irParaProduto('produto9.html')">
+            </div>
+            <div class="descricao" onclick="irParaProduto('produto9.html')">
+                Reebok Club C 85 - Minimalista e elegante.
+            </div>
             <div class="preco">R$ 279,90</div>
-            <button class="botao-carrinho">Adicionar ao Carrinho</button>
+            <div class="produto-acoes">
+                <button class="botao-ver-mais" onclick="irParaProduto('produto9.html')">Ver Detalhes</button>
+                <button class="botao-carrinho">Adicionar ao Carrinho</button>
+            </div>
         </div>
-
+    
         <!-- Produto 10 -->
-        <div class="produto">
-            <div class="imagem-produto"><img src="img/Asics Gel Nimbus.jpg"></div>
-            <div class="descricao">Asics Gel Nimbus - Performance para longas distâncias.</div>
+        <div class="produto" data-produto-id="10">
+            <div class="imagem-produto">
+                <img src="img/Asics Gel Nimbus.jpg" onclick="irParaProduto('produto10.html')">
+            </div>
+            <div class="descricao" onclick="irParaProduto('produto10.html')">
+                Asics Gel Nimbus - Performance para longas distâncias.
+            </div>
             <div class="preco">R$ 549,90</div>
-            <button class="botao-carrinho">Adicionar ao Carrinho</button>
+            <div class="produto-acoes">
+                <button class="botao-ver-mais" onclick="irParaProduto('produto10.html')">Ver Detalhes</button>
+                <button class="botao-carrinho">Adicionar ao Carrinho</button>
+            </div>
         </div>
-
+    
         <!-- Produto 11 -->
-        <div class="produto">
-            <div class="imagem-produto"><img src="img/Fila Disruptor.jpg"></div>
-            <div class="descricao">Fila Disruptor - Chunky sneaker em alta.</div>
+        <div class="produto" data-produto-id="11">
+            <div class="imagem-produto">
+                <img src="img/Fila Disruptor.jpg" onclick="irParaProduto('produto11.html')">
+            </div>
+            <div class="descricao" onclick="irParaProduto('produto11.html')">
+                Fila Disruptor - Chunky sneaker em alta.
+            </div>
             <div class="preco">R$ 199,90</div>
-            <button class="botao-carrinho">Adicionar ao Carrinho</button>
+            <div class="produto-acoes">
+                <button class="botao-ver-mais" onclick="irParaProduto('produto11.html')">Ver Detalhes</button>
+                <button class="botao-carrinho">Adicionar ao Carrinho</button>
+            </div>
         </div>
-
+    
         <!-- Produto 12 -->
-        <div class="produto">
-            <div class="imagem-produto"><img src="img/Olympikus Corre 3.jpg"></div>
-            <div class="descricao">Olympikus Corre 3 - Nacional de alta qualidade.</div>
+        <div class="produto" data-produto-id="12">
+            <div class="imagem-produto">
+                <img src="img/Olympikus Corre 3.jpg" onclick="irParaProduto('produto12.html')">
+            </div>
+            <div class="descricao" onclick="irParaProduto('produto12.html')">
+                Olympikus Corre 3 - Nacional de alta qualidade.
+            </div>
             <div class="preco">R$ 159,90</div>
-            <button class="botao-carrinho">Adicionar ao Carrinho</button>
+            <div class="produto-acoes">
+                <button class="botao-ver-mais" onclick="irParaProduto('produto12.html')">Ver Detalhes</button>
+                <button class="botao-carrinho">Adicionar ao Carrinho</button>
+            </div>
         </div>
     </div>
-
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -172,6 +267,63 @@
         border-radius: 2px;
     }
 
+    /* CARROSSEL */
+    .carrossel-container {
+        position: relative;
+        width: 80vw;
+        height: 30vh;
+        overflow: hidden;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #000;
+        margin-bottom: 40px;
+    }
+
+    .carrossel {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .carrossel img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        flex-shrink: 0;
+        display: block;
+    }
+
+    .seta {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        border: none;
+        font-size: 24px;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 10;
+        border-radius: 50%;
+        user-select: none;
+        background-color: transparent;
+        color: white;
+        transition: color 0.3s;
+    }
+
+    .seta:hover {
+        color: #ddd;
+    }
+
+    .seta-anterior {
+        left: 10px;
+    }
+
+    .seta-proximo {
+        right: 10px;
+    }
+
     .produtos-container {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -188,6 +340,7 @@
         box-shadow: 0 2px 4px rgba(74, 144, 226, 0.3);
         text-align: center;
         transition: transform 0.2s;
+        position: relative;
     }
 
     .produto:hover {
@@ -202,22 +355,35 @@
         border-radius: 4px;
         margin-bottom: 15px;
         border: 1px solid #4a90e2;
-
         display: flex;
         justify-content: center;
         align-items: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .imagem-produto:hover {
+        border-color: #74b9ff;
+        box-shadow: 0 0 15px rgba(74, 144, 226, 0.3);
     }
 
     .imagem-produto img {
         width: 100%;
         height: 100%;
         object-fit: contain;
+        cursor: pointer;
     }
 
     .descricao {
         font-size: 16px;
         margin-bottom: 10px;
         color: #ffffff;
+        cursor: pointer;
+        transition: color 0.3s ease;
+    }
+
+    .descricao:hover {
+        color: #4a90e2;
     }
 
     .preco {
@@ -225,6 +391,32 @@
         color: #4a90e2;
         margin-bottom: 15px;
         font-size: 18px;
+    }
+
+    .produto-acoes {
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+    }
+
+    .botao-ver-mais {
+        background: linear-gradient(135deg, #00b894, #00a085);
+        color: #ffffff;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 5px;
+        font-size: 13px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-weight: bold;
+    }
+
+    .botao-ver-mais:hover {
+        background: linear-gradient(135deg, #00a085, #00b894);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 184, 148, 0.3);
     }
 
     .botao-carrinho {
@@ -240,6 +432,27 @@
 
     .botao-carrinho:hover {
         background-color: #357abd;
+    }
+
+    /* Indicador visual para produto clicável */
+    .produto[data-produto-id="1"]::before {
+        content: "👁️ Ver Detalhes";
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: linear-gradient(135deg, #00b894, #00a085);
+        color: white;
+        padding: 4px 8px;
+        border-radius: 12px;
+        font-size: 11px;
+        font-weight: bold;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 5;
+    }
+
+    .produto[data-produto-id="1"]:hover::before {
+        opacity: 1;
     }
 
     /* BOTÃO CARRINHO LATERAL */
@@ -350,6 +563,11 @@
         font-weight: bold;
         margin: 0 0 5px 0;
         font-size: 14px;
+        cursor: default;
+    }
+
+    .item-carrinho-info .descricao:hover {
+        color: #ffffff;
     }
 
     .item-carrinho-info .preco {
@@ -407,11 +625,49 @@
     #btn-finalizar:hover {
         background-color: #357abd;
     }
+
+    @media (max-width: 768px) {
+        .produto-acoes {
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .botao-ver-mais, .botao-carrinho {
+            font-size: 12px;
+            padding: 8px 12px;
+        }
+    }
 </style>
 
 <script>
 // Objeto que armazenará os produtos adicionados ao carrinho
 let carrinhoProdutos = [];
+
+// Função para navegar para página do produto
+function irParaProduto(urlProduto) {
+    window.location.href = urlProduto;
+}
+
+// Carrossel
+const carrossel = document.querySelector('.carrossel');
+const imagens = document.querySelectorAll('.carrossel img');
+const btnAnterior = document.querySelector('.seta-anterior');
+const btnProximo = document.querySelector('.seta-proximo');
+let indiceAtual = 0;
+
+function atualizarCarrossel() {
+    carrossel.style.transform = `translateX(-${indiceAtual * 100}%)`;
+}
+
+btnAnterior.addEventListener('click', () => {
+    indiceAtual = (indiceAtual === 0) ? imagens.length - 1 : indiceAtual - 1;
+    atualizarCarrossel();
+});
+
+btnProximo.addEventListener('click', () => {
+    indiceAtual = (indiceAtual === imagens.length - 1) ? 0 : indiceAtual + 1;
+    atualizarCarrossel();
+});
 
 // Função que conta a quantidade total de itens no carrinho
 function contarQuantidadeCarrinho() {
@@ -537,6 +793,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const botoes = document.querySelectorAll('.botao-carrinho');
     botoes.forEach((botao, index) => {
         botao.addEventListener('click', function(e) {
+            e.stopPropagation(); // Previne que clique no botão navegue para o produto
             const produto = e.target.closest('.produto');
             const nome = produto.querySelector('.descricao').textContent;
             const precoTexto = produto.querySelector('.preco').textContent;
